@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/assignorder_POST_user"> {% csrf_token %}
+    <table border="05">
+        <tr>
+        <input type="hidden" name="id" value="{{ data.id }}">
+
+        <td>Delivery</td>
+        <td>
+            <select name="s">
+                {% for i in f %}
+                <option value="{{i.id}}">{{i.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        </tr>
+
+    <tr>
+
+        <td>
+            <input type="submit">
+        </td>
+    </tr>
+
+
+    </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'userpage/userindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form method="post" action="/add_cart_POST"> {% csrf_token %}
+<body>
+
+<table class="table table-striped ">
+    <tr>
+        <input type="hidden" name="id" value="{{ data.id }}">
+        <td>Quantity</td>
+        <td><input type="text" name="quantity" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+    <td><input type="submit" class="btn btn-success"></td>
+    </tr>
+</table>
+
+
+</body>
+</form>
+</html>
+{% endblock %}

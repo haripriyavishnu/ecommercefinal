@@ -1,0 +1,49 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_order_search#b"> {% csrf_token %}
+
+<table>
+    <td><input type="text" placeholder="enter date" name="date" class="form-control"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+</table>
+
+
+
+<table class="table table-striped">
+    <tr>
+{#        <td>Cart</td>#}
+       <td>User</td>
+        <td>totalquantity</td>
+        <td>totalprice</td>
+        <td>date</td>
+        <td>order</td>
+        <td>status</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+
+        <td>{{ i.USER.name }}</td>
+        <td>{{ i.totalquantity }}</td>
+    <td>{{ i.totalprice }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.order }}</td>
+    <td>{{ i.status }}</td>
+    <td><a href="/assignorder/{{ i.id }}" class="btn btn-info">assign order</a></td>
+{#    <td><a href="/order_product_user">order product</a></td>#}
+    </tr>
+    {% endfor %}
+</table>
+    </form>
+</body>
+</html>
+{% endblock %}

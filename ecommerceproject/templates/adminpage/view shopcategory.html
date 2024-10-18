@@ -1,0 +1,29 @@
+
+{% extends 'adminpage/adminindex.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_shopcategory_search#a"> {% csrf_token %}
+<table class="table table-bordered" style="background-color: #cbc9ff">
+<td><input type="text" placeholder="enter categoryname" name="categoryname" class="form-control"></td>
+<td><input type="submit" class="btn btn-success"></td>
+    <tr>
+        <td style="color: #3f51b5; font-size: larger">categoryname</td>
+    {% for i in data %}
+        <tr>
+    <td style="color: black;font-size: large">{{ i.categoryname }}</td>
+        <td class="btn btn-success" style="background-color: #a8eded" ><a href="/edit_shopcategory/{{ i.id }}">edit</a></td>
+        <td class="btn btn-danger" style="background-color: #c1e2b3"><a href="/delete_shopcategory/{{ i.id }}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

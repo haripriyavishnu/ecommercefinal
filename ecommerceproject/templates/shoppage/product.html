@@ -1,0 +1,39 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/add_product_shop_POST" enctype="multipart/form-data"> {% csrf_token %}
+    <table class="table table-striped">
+
+    <tr>
+
+        <td>Product name</td>
+        <td><input type="text" name="name" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>Productprice</td>
+        <td><input type="text" name="productprice" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>Image</td>
+        <td><input type="file" name="image" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>Quantity</td>
+        <td><input type="text" name="quantity" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>Product category</td>
+        <td><input type="text" name="productcategory" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td><input type="submit" class="btn btn-info" style="background-color: #a2edb1"></td>
+
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

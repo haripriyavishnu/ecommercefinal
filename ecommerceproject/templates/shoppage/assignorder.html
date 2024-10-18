@@ -1,0 +1,38 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/assignorder_POST"> {% csrf_token %}
+    <table class="table table-striped">
+        <tr>
+        <input type="hidden" name="id" value="{{ data.id }}">
+
+        <td>Delivery</td>
+        <td>
+            <select name="s" class="form-control">
+                {% for i in f %}
+                <option value="{{i.id}}" class="form-control">{{i.name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        </tr>
+
+    <tr>
+
+        <td>
+            <input type="submit" class="btn btn-success">
+        </td>
+    </tr>
+
+
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

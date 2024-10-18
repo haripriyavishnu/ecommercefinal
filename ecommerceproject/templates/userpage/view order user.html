@@ -1,0 +1,39 @@
+{% extends 'userpage/userindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="05">
+    <tr>
+        <td>Cart</td>
+        <td>User</td>
+        <td>totalquantity</td>
+        <td>totalprice</td>
+        <td>date</td>
+        <td>order</td>
+        <td>status</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+    <td>{{ i.date }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.totalquantity }}</td>
+    <td>{{ i.totalprice }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.order }}</td>
+    <td>{{ i.status }}</td>
+    <td><a href="/view_assign_order_user"> view assign order</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

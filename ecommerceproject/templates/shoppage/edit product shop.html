@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/edit_product_shop_POST" enctype="multipart/form-data"> {% csrf_token %}
+    <table>
+
+    <tr>
+
+        <td>Product name</td>
+        <td><input type="text" name="name" value="{{ data.name }}"></td>
+        <tr>
+        <td>Productprice</td>
+        <td><input type="text" name="productprice" value="{{ data.productprice }}"></td>
+        <tr>
+        <td>Image</td>
+        <td><input type="file" name="image" value="{{ data.image }}"></td>
+        <tr>
+        <td>Quantity</td>
+        <td><input type="text" name="quantity" value="{{ data.quantity }}"></td>
+        <tr>
+        <td>Product category</td>
+        <td><input type="text" name="productcategory" value="{{ data.productcategory }}"></td>
+        <input type="hidden" name="id" value="{{ data.id }}">
+        <tr>
+        <td><input type="submit"></td>
+
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>

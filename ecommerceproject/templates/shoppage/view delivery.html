@@ -1,0 +1,42 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_delivery_search"> {% csrf_token %}
+<table class="table table-striped">
+
+ <td><input type="text" placeholder="enter  name" name="name" class="form-control"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+    <tr>
+{#        <td>SHOP</td>#}
+        <td>Name</td>
+        <td>Phone</td>
+        <td>Address</td>
+        <td>Email</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+{#    <td>{{ i.SHOP.name }}</td>#}
+    <td>{{ i.name }}</td>
+    <td>{{ i.phone }}</td>
+    <td>{{ i.address }}</td>
+    <td>{{ i.email }}</td>
+    <td><a href="/edit_delivery/{{ i.id }}" class="btn btn-info" style="background-color: #91ed92">edit</a></td>
+    <td><a href="/delete_delivery/{{ i.id }}" class="btn btn-info" style="background-color: #ed9caa">del</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+
+</body>
+</html>
+{% endblock %}

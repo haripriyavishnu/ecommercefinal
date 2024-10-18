@@ -1,0 +1,115 @@
+{% extends 'adminpage/adminindex.html' %}
+{% block body %}
+<table class="table align-middle mb-0 bg-white" style="color: #cbc9ff">
+  <thead class="bg-light">
+    <tr>
+      <th style="color: #3f51b5">Name</th>
+      <th style="color: #3f51b5">Shopcategory</th>
+      <th style="color: #3f51b5">phone</th>
+      <th style="color: #3f51b5">address</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for i in data %}
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="{{ i.image }}" width="100px" height="100px"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{ i.name }}</p>
+            <p class="text-muted mb-0">{{ i.email }}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ i.SHOPCATEGORY.categoryname }}</p>
+        <p class="text-muted mb-0"></p>
+      </td>
+      <td>
+        <span class="badge badge-success rounded-pill d-inline">{{ i.phone }}</span>
+      </td>
+         <td>{{ i.address }}</td>
+      <td class="btn btn-info" style="background-color: #a2edb1"><a href="/approve_shop/{{ i.LOGIN.id }}">approve</a></td>
+      <td>
+        <button type="button" class="btn btn-link btn-sm btn-rounded">
+
+
+            <span class="badge badge-success rounded-pill d-inline"><td class="btn btn-info" style="background-color: #ed9caa"><a href="/reject_shop/{{ i.LOGIN.id }}"> reject</a></td></span>
+        </button>
+      </td>
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="05">
+    <tr>
+        <td>Shopcategory</td>
+        <td>name</td>
+        <td>image</td>
+        <td>address</td>
+        <td>phone</td>
+        <td>email</td>
+
+
+    </tr>
+{% for i in data %}
+    <tr>
+        <td>{{ i.SHOPCATEGORY.categoryname }}</td>
+        <td>{{ i.name }}</td>
+        <td><img src="{{ i.image }}" width="100px" height="100px" ></td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.phone }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.LOGIN.type }}</td>
+        <td><a href="/approve_shop/{{ i.LOGIN.id }}">approve</a></td>
+        <td><a href="/reject_shop/{{ i.LOGIN.id }}"> reject</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

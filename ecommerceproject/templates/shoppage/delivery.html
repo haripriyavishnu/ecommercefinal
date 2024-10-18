@@ -1,0 +1,46 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/add_delivery_POST"> {% csrf_token %}
+    <table class="table table-striped">
+{#        <tr>#}
+{#            <td>Shop</td>#}
+{#            <tr>#}
+{#        <td>#}
+{#            <select name="select">#}
+{#                {% for i in data %}#}
+{#                <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+{#        </td>#}
+{#        </tr>#}
+    <tr>
+        <td>name</td>
+        <td><input type="text" name="name" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>phone</td>
+        <td><input type="text" name="phone" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>address</td>
+        <td><input type="text" name="address" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td>email</td>
+        <td><input type="text" name="email" class="form-control" required="[a-z A-Z]+"></td>
+        <tr>
+        <td><input type="submit" class="btn btn-info" style="background-color: #a2edb1"></td>
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

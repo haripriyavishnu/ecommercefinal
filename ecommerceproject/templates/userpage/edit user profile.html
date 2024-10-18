@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/edit_profile_user_POST" enctype="multipart/form-data"> {%csrf_token  %}
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{ data.name }}"></td>
+            <tr>
+        <td>Phone</td>
+        <td><input type="text" name="phone" value="{{data.phone }}"></td>
+        <tr>
+        <td>Email</td>
+        <td><input type="text" name="email" value="{{ data.email }}"></td>
+        <tr>
+        <td>image</td>
+        <td><input type="file" name="image" value="{{ data.image }}"></td>
+        <tr>
+        <td>address</td>
+        <td><input type="text" name="address" value="{{ data.image }}"></td>
+        <input type="hidden" name="id" value="{{ data.id }}">
+        <tr>
+        <td><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

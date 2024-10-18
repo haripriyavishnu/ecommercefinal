@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="05" style="color: mediumslateblue">
+    <tr>
+
+        <td>SHOP</td>
+        <td>ORDER</td>
+        <td>DELIVERY</td>
+        <td>DATE</td>
+        <td>STATUS</td>
+
+
+    </tr>
+    {% for i in data %}
+    <tr>
+
+        <td>{{ i.SHOP.name }}</td>
+    <td>{{ i.ORDER.USER.name }}</td>
+    <td>{{ i.DELIVERY.name }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.status }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

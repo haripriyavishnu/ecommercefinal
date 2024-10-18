@@ -1,0 +1,42 @@
+{% extends 'adminpage/adminindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered" style="background-color: #ecdcff">
+    <tr>
+       <td style="color: #3f51b5; font-size: larger;font-style: italic">User</td>
+        <td style="color: #3f51b5;font-size: larger;font-style: italic">Date</td>
+        <td style="color: #3f51b5;font-size: larger;font-style: italic">Complaint</td>
+        <td style="color: #3f51b5;font-size: larger;font-style: italic">Reply</td>
+
+
+    </tr>
+{% for i in data %}
+    <tr>
+       <td style="color: black">{{i.USER.name}}</td>
+        <td style="color: black">{{i.date }}</td>
+        <td style="color: black">{{ i.complaint }}</td>
+    <td>
+        {%  if i.reply == "pending" %}
+
+        <a href="/sent_reply_admin/{{ i.id }}"> reply</a>
+            {% else %}
+            {{ i.reply }}
+        {% endif %}
+    </td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

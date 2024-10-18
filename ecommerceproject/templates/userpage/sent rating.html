@@ -1,0 +1,81 @@
+
+{% extends 'userpage/userindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url(\static\web\image)">
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    font-size: 2em;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2em;
+    transition: color 0.2s ease-in-out;
+}
+
+.star-rating input:checked ~ label {
+    color: #f7c15a;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f7c15a;
+}
+
+</style>
+
+<form method="post" action="/sent_rating_user_POST">  {% csrf_token %}
+    <center>
+        <table>
+    <tr>
+        <td style="font-size: larger">Please rate us !</td>
+        <td>
+
+             <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" title="5 stars">&#9733;</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="4 stars">&#9733;</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="3 stars">&#9733;</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="2 stars">&#9733;</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="1 star">&#9733;</label>
+    </div>
+        </td>
+        <tr>
+    <td>
+        <input type="hidden" name="id" value="{{ data.id }}">
+        <input type="submit" class="star-rating btn btn-success" onclick="" onclose=""  style="background: #91ed92">
+    </td>
+    </tr>
+</table>
+
+    </center>
+</form>
+</body>
+</html>
+
+
+{% endblock %}

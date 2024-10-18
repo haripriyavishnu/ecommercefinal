@@ -1,0 +1,42 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_product_shop_search"> {% csrf_token %}
+<table class="table table-striped">
+<td><input type="text" placeholder="enter product name" name="name" class="form-control"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+    <tr>
+        <td>Name</td>
+        <td>Product category</td>
+        <td>Product price</td>
+        <td>Image</td>
+       <td>Quantity</td>
+        <tr>
+    {% for i in data %}
+        <td>{{i.name  }}</td>
+        <td>{{ i.productcategory }}</td>
+        <td>{{ i.productprice }}</td>
+        <td><img src="{{ i.image }}" height="100px" width="100px"></td>
+        <td>{{ i.quantity }}</td>
+        <td><a href="/delete_product_shop/{{ i.id }}" class="btn btn-info" style="background-color: #ed9caa">del</a></td>
+        <td><a href="/edit_product_shop/{{ i.id }}" class="btn btn-info" style="background-color: #a2edb1">edit</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

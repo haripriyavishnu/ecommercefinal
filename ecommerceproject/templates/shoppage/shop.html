@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/add_shop_POST" enctype="multipart/form-data">  {% csrf_token %}
+    <table>
+        <tr>
+            <td>Shopcategory</td>
+        <td>
+            <select name="select">
+                {% for i in data %}
+                <option value="{{ i.id }}">{{ i.categoryname }}</option>
+                {% endfor %}
+            </select>
+        </td>
+        </tr>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" name="name"></td>
+        <tr>
+        <td>Image</td>
+        <td><input type="file" name="image"></td>
+        <tr>
+        <td>Address</td>
+        <td><input type="text" name="address"></td>
+        <tr>
+        <td>Phone</td>
+        <td><input type="text" name="phone"></td>
+        <tr>
+        <td>email</td>
+        <td><input type="email" name="email"></td>
+        <tr>
+        <td><input type="submit"></td>
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>

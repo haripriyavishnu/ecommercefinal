@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/add_user_POST" enctype="multipart/form-data"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name"></td>
+            <tr>
+        <td>Phone</td>
+        <td><input type="text" name="phone"></td>
+        <tr>
+        <td>Email</td>
+        <td><input type="text" name="email"></td>
+        <tr>
+        <td>image</td>
+        <td><input type="file" name="image"></td>
+        <tr>
+        <td>address</td>
+        <td><input type="text" name="address"></td>
+        <tr>
+        <td><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

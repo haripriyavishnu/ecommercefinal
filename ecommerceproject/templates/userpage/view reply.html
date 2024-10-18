@@ -1,0 +1,30 @@
+{% extends 'userpage/userindex.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <td>USER</td>
+        <td>complaint</td>
+        <td>date</td>
+        <td>reply</td>
+    </tr>
+{% for i in data %}
+    <tr>
+        <td>{{i.USER.name }}</td>
+        <td>{{i.complaint }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.reply }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

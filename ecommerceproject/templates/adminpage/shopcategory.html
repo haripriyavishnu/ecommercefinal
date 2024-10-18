@@ -1,0 +1,25 @@
+{% extends 'adminpage/adminindex.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/shopcategory_POST"> {% csrf_token %}
+    <table class="table table-bordered" style="background-color: #cbc9ff">
+        <tr>
+            <td>categoryname</td>
+            <td><input type="text" name="categoryname" class="form-control" required pattern="[a-z A-Z]+"></td>
+            <tr>
+        <td><input type="submit" class="btn btn-success"></td>
+
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
+{% endblock %}

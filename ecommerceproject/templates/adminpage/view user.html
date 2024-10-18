@@ -1,0 +1,101 @@
+{% extends 'adminpage/adminindex.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    .container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+
+    <form method="post" action="/view_user_search"> {%csrf_token  %}
+
+
+    <td><input type="text" placeholder="enter user name" name="name"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+		<table class="table table-image">
+
+
+
+		  <thead>
+		    <tr>
+		      <th scope="col" style="color: #2e6da4">name</th>
+		      <th scope="col" style="color: #3b5998">image</th>
+		      <th scope="col" style="color: #3b5998">email</th>
+		      <th scope="col" style="color: #3b5998">phone</th>
+		      <th scope="col" style="color: #3b5998">address</th>
+{#		      <th scope="col">Shares</th>#}
+		    </tr>
+		  </thead>
+		  <tbody>
+          {% for i in data %}
+		    <tr>
+		      <th scope="row" style="font-size: larger">{{ i.name }}</th>
+		      <td class="w-25">
+			      <img src="{{ i.image }}" width="100px" height="100px">
+		      </td>
+		      <td style="font-size: larger">{{ i.email }}</td>
+		      <td style="font-size: larger">{{ i.phone }}</td>
+		      <td></td>
+		      <td style="font-size: larger">{{ i.address }}</td>
+		    </tr>
+          {% endfor %}
+{#		    <tr>#}
+{#		      <th scope="row">2</th>#}
+{#		      <td class="w-25">#}
+{#			      <img src="{{ i.image }}" width="100px" height="100px">#}
+{#		      </td>#}
+{#		      <td>Bootstrap Grid 4 Tutorial and Examples</td>#}
+{#		      <td>Cristina</td>#}
+{#		      <td>1.434</td>#}
+{#		      <td>3.417</td>#}
+{#		    </tr>#}
+		  </tbody>
+		</table>
+    </form>
+    </div>
+  </div>
+</div>
+{#<table border="05">#}
+{#    <tr>#}
+{#        <td>name</td>#}
+{#        <td>phone</td>#}
+{#        <td>email</td>#}
+{#        <td>image</td>#}
+{#        <td>address</td>#}
+{#        {% for i in data %}#}
+{#        <tr>#}
+{#    <td>{{ i.name }}</td>#}
+{#    <td>{{ i.phone }}</td>#}
+{#    <td>{{ i.email }}</td>#}
+{#    <td><img src="{{ i.image }}" width="100px" height="100px"></td>#}
+{#    <td>{{ i.address }}</td>#}
+{##}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+{##}
+{#</body>#}
+{#</html>#}
+{% endblock %}

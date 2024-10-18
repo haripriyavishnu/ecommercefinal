@@ -1,0 +1,42 @@
+{% extends 'userpage/userindex.html' %}
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/view_product_user_search#c">{% csrf_token %}
+<table>
+    <td><input type="text" placeholder="enter product name" name="name" class="form-control"> </td>
+    <td><input type="submit" class="btn btn-success"></td>
+</table>
+<br>
+<table class="table table-striped" >
+    <tr>
+        <td>Name</td>
+        <td>Product category</td>
+        <td>Product price</td>
+        <td>Image</td>
+        <td>Quantity</td>
+        <tr>
+    {% for i in data %}
+        <td>{{i.name  }}</td>
+        <td>{{ i.productcategory }}</td>
+        <td>{{ i.productprice }}</td>
+        <td><img src="{{ i.image }}" width="100px" height="100px"></td>
+        <td>{{ i.quantity }}</td>
+        <td><a href="/add_cart/{{ i.id }}" class="btn btn-info" style="background-color: #a8eded">Add to Cart</a></td>
+{#        <td><a href="/order_product_user">Order</a></td>#}
+
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

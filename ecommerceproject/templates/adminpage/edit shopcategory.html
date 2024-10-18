@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/edit_shopcategory_POST"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>categoryname</td>
+            <td><input type="text" name="select" value="{{ data.categoryname }}"></td>
+        <input type="hidden" name="id" value="{{ data.id }}">
+            <tr>
+        <td><input type="submit"></td>
+
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

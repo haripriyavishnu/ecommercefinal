@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/edit_delivery_POST"> {% csrf_token %}
+    <table>
+{#        <tr>#}
+{#            <td>Shop</td>#}
+{#            <tr>#}
+{#        <td>#}
+{#            <select name="select">#}
+{#             <option value="{{ i.SHOP.id }}">{{ i.SHOP.name }}</option>#}
+{#                {% for i in data %}#}
+{#                <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+{#        </td>#}
+{#        </tr>#}
+    <tr>
+        <td>name</td>
+        <td><input type="text" name="name" value="{{ c.name }}"></td>
+        <tr>
+        <td>phone</td>
+        <td><input type="text" name="phone" value="{{ c.phone }}"></td>
+        <tr>
+        <td>address</td>
+        <td><input type="text" name="address" value="{{ c.address }}"></td>
+        <tr>
+        <td>email</td>
+        <td><input type="text" name="email" value="{{ c.email }}"></td>
+        <input type="hidden" name="id" value="{{ c.id }}">
+        <tr>
+        <td><input type="submit"></td>
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>

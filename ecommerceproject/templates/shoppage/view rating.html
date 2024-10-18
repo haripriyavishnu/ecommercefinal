@@ -1,0 +1,28 @@
+{% extends 'shoppage/index.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <td style="font-size: larger">User</td>
+        <td style="font-size: larger">Rating</td>
+        <td style="font-size: larger">Date</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ i.USER.name }}</td>
+    <td>{{ i.rating }}</td>
+    <td>{{ i.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}
